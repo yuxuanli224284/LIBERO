@@ -9,6 +9,8 @@ libero_task_map = {
         "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate",
         "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate",
         "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate",
+        "TEST_SCENE1_your_language_1",
+        "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_c",
         "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate",
     ],
     "libero_object": [

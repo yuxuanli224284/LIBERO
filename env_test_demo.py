@@ -37,11 +37,11 @@ print(init_states[init_state_id])
 dummy_action = [0.1] * 7
 
 # Video recording setup
-video_filename = "env_render.mp4"
+video_filename = "/home/lyx/LIBERO/env_render.mp4"
 fps = 30  # Frames per second
 writer = imageio.get_writer(video_filename, fps=fps)
 
-for step in range(50):
+for step in range(10):
     obs, reward, done, info = env.step(dummy_action)
     print(f"[info] step {step}, reward: {reward}, done: {done}, info: {info}")
 

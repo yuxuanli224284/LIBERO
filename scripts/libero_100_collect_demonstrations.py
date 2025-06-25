@@ -28,6 +28,8 @@ import libero.libero.envs.bddl_utils as BDDLUtils
 from libero.libero.envs import *
 from termcolor import colored
 
+from xbox_controller import XboxController
+
 
 def collect_human_trajectory(
     env, device, arm, env_configuration, problem_info, remove_directory=[]
@@ -242,7 +244,7 @@ if __name__ == "__main__":
         default="OSC_POSE",
         help="Choice of controller. Can be 'IK_POSE' or 'OSC_POSE'",
     )
-    parser.add_argument("--device", type=str, default="spacemouse")
+    parser.add_argument("--device", type=str, default="keyboard")
     parser.add_argument(
         "--pos-sensitivity",
         type=float,
@@ -261,7 +263,7 @@ if __name__ == "__main__":
         default=50,
         help="How much to scale rotation user inputs",
     )
-    parser.add_argument("--bddl-file", type=str, default=None)
+    parser.add_argument("--bddl-file", type=str, default="/home/lyx/LIBERO/libero/libero/bddl_files/libero_spatial/pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_c.bddl")
     parser.add_argument("--task-id", type=int)
 
     parser.add_argument("--vendor-id", type=int, default=9583)
@@ -326,18 +328,21 @@ if __name__ == "__main__":
     if args.device == "keyboard":
         from robosuite.devices import Keyboard
 
-        device = Keyboard(
-            pos_sensitivity=args.pos_sensitivity, rot_sensitivity=args.rot_sensitivity
-        )
-        env.viewer.add_keypress_callback("any", device.on_press)
-        env.viewer.add_keyup_callback("any", device.on_release)
-        env.viewer.add_keyrepeat_callback("any", device.on_press)
+        device = Keyboard(pos_sensitivity=args.pos_sensitivity, rot_sensitivity=args.rot_sensitivity)
+        env.viewer.add_keypress_callback(device.on_press)
+        # env.viewer.add_keyup_callback(device.on_release)
+        # env.viewer.add_keyrepeat_callback(device.on_press)
     elif args.device == "spacemouse":
         from robosuite.devices import SpaceMouse
 
         device = SpaceMouse(
             args.vendor_id,
             args.product_id,
+            pos_sensitivity=args.pos_sensitivity,
+            rot_sensitivity=args.rot_sensitivity,
+        )
+    elif args.device == "controller":
+        device = XboxController(
             pos_sensitivity=args.pos_sensitivity,
             rot_sensitivity=args.rot_sensitivity,
         )
