@@ -63,12 +63,12 @@ class TestScene2(InitialSceneTemplates):
 
         fixture_num_info = {
             "kitchen_table": 1,
-            "wooden_cabinet": 1,
+            # "wooden_cabinet": 1,
         }
 
         object_num_info = {
             "akita_black_bowl": 1,
-            "plate": 1,
+            "plate": 2,
         }
 
         super().__init__(
@@ -79,10 +79,10 @@ class TestScene2(InitialSceneTemplates):
 
     def define_regions(self):
         self.regions.update(
-            self.get_region_dict(region_centroid_xy=[0.0, -0.30], 
+            self.get_region_dict(region_centroid_xy=[0.0, -0.25], 
                                  region_name="wooden_cabinet_init_region", 
                                  target_name=self.workspace_name, 
-                                 region_half_len=0.01,
+                                 region_half_len=0.001,
                                  yaw_rotation=(np.pi, np.pi))
         )
 
@@ -97,7 +97,7 @@ class TestScene2(InitialSceneTemplates):
             self.get_region_dict(region_centroid_xy=[0.0, 0.25], 
                                  region_name="plate_init_region", 
                                  target_name=self.workspace_name, 
-                                 region_half_len=0.025)
+                                 region_half_len=0.001)
         )
         self.xy_region_kwargs_list = get_xy_region_kwargs_list_from_regions_info(self.regions)
 
@@ -106,22 +106,25 @@ class TestScene2(InitialSceneTemplates):
         states = [
             ("On", "akita_black_bowl_1", "kitchen_table_akita_black_bowl_init_region"),
             ("On", "plate_1", "kitchen_table_plate_init_region"),
-            ("On", "wooden_cabinet_1", "kitchen_table_wooden_cabinet_init_region")]
+            ("On", "plate_2", "kitchen_table_wooden_cabinet_init_region"),
+            # ("Open", "wooden_cabinet_1", "wooden_cabinet_1_top_drawer"),
+            ]
         return states
 
 scene_name = "test_scene2"
 language = "Your Language 1"
 register_task_info(language,
                     scene_name=scene_name,
-                    objects_of_interest=["wooden_cabinet_1", "akita_black_bowl_1"],
-                    goal_states=[("Open", "wooden_cabinet_1_top_region"), ("In", "akita_black_bowl_1", "wooden_cabinet_1_top_region")]
+                    objects_of_interest=["plate_1", "akita_black_bowl_1"],
+                    goal_states=[("In", "akita_black_bowl_1", "kitchen_table_plate_init_region")]
 )
 
 # This is the default path to store all the pddl scene files. Here we store the files in the temporary folder. If you want to directly add files into the libero codebase, get the default path use the following commented lines:
 # from libero.libero import get_libero_path
 # YOUR_BDDL_FILE_PATH = get_libero_path("bddl_files")
 
-YOUR_BDDL_FILE_PATH = "tmp/pddl_files"
+# YOUR_BDDL_FILE_PATH = "tmp/pddl_files"
+YOUR_BDDL_FILE_PATH = "/home/lyx/LIBERO/libero/libero/bddl_files/libero_spatial"
 bddl_file_names, failures = generate_bddl_from_task_info(folder=YOUR_BDDL_FILE_PATH)
 
 print(bddl_file_names)

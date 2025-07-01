@@ -27,11 +27,11 @@ env_args = {
 env = OffScreenRenderEnv(**env_args)
 env.seed(0)
 env.reset()
-init_states = task_suite.get_task_init_states(task_id) # for benchmarking purpose, we fix the a set of initial states
+# init_states = task_suite.get_task_init_states(task_id) # for benchmarking purpose, we fix the a set of initial states
 init_state_id = 0
-env.set_init_state(init_states[init_state_id])
+# env.set_init_state(init_states[init_state_id])
 print("****************")
-print(init_states[init_state_id])
+# print(init_states[init_state_id])
 # env.set_init_state(49.)
 
 dummy_action = [0.1] * 7

@@ -66,8 +66,28 @@ def generate_bddl_from_task_info(folder="/tmp/pddl"):
             goal_states = task_info_tuple.goal_states
             scene = get_scene_class(scene_name)()
 
-            try:
-                result = get_suite_generator_func(scene.workspace_name)(
+            # try:
+            #     result = get_suite_generator_func(scene.workspace_name)(
+            #         language=language,
+            #         xy_region_kwargs_list=scene.xy_region_kwargs_list,
+            #         affordance_region_kwargs_list=scene.affordance_region_kwargs_list,
+            #         fixture_object_dict=scene.fixture_object_dict,
+            #         movable_object_dict=scene.movable_object_dict,
+            #         objects_of_interest=objects_of_interest,
+            #         init_states=scene.init_states,
+            #         goal_states=goal_states,
+            #     )
+            #     result = get_result(result)
+            #     bddl_file_name = save_to_file(
+            #         result, scene_name=scene_name, language=language, folder=folder
+            #     )
+            #     if bddl_file_name in bddl_file_names:
+            #         print(bddl_file_name)
+            #     bddl_file_names.append(bddl_file_name)
+            #     results.append(result)
+            # except:
+            #     failures.append((scene_name, language))
+            result = get_suite_generator_func(scene.workspace_name)(
                     language=language,
                     xy_region_kwargs_list=scene.xy_region_kwargs_list,
                     affordance_region_kwargs_list=scene.affordance_region_kwargs_list,
@@ -77,15 +97,14 @@ def generate_bddl_from_task_info(folder="/tmp/pddl"):
                     init_states=scene.init_states,
                     goal_states=goal_states,
                 )
-                result = get_result(result)
-                bddl_file_name = save_to_file(
-                    result, scene_name=scene_name, language=language, folder=folder
-                )
-                if bddl_file_name in bddl_file_names:
-                    print(bddl_file_name)
-                bddl_file_names.append(bddl_file_name)
-                results.append(result)
-            except:
-                failures.append((scene_name, language))
+            result = get_result(result)
+            bddl_file_name = save_to_file(
+                result, scene_name=scene_name, language=language, folder=folder
+            )
+            if bddl_file_name in bddl_file_names:
+                print(bddl_file_name)
+            bddl_file_names.append(bddl_file_name)
+            results.append(result)
+            
     print(f"Succefully generated: {len(results)}")
     return bddl_file_names, failures
