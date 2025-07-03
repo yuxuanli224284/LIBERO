@@ -1,0 +1,111 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the white bowl into the cabinet)
+    (:regions
+      (akita_black_bowl_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.025 -0.025 0.025 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (alphabet_soup_0_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.11606032554373974 -0.034610821263799045 -0.06606032554373972 0.015389178736200958)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (butter_1_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.01478360889607011 -0.08475144588167488 0.06478360889607011 -0.03475144588167488)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (white_cabinet_0_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.11587268757747043 0.07963991099748648 0.17587268757747043 0.13963991099748646)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (short_fridge_1_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.11752759823431909 0.09509669012370703 -0.05752759823431909 0.15509669012370703)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (top_side
+          (:target white_cabinet_1)
+      )
+      (top_region
+          (:target white_cabinet_1)
+      )
+      (middle_region
+          (:target white_cabinet_1)
+      )
+      (bottom_region
+          (:target white_cabinet_1)
+      )
+      (upper_region
+          (:target short_fridge_1)
+      )
+      (middle_region
+          (:target short_fridge_1)
+      )
+      (lower_region
+          (:target short_fridge_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    alphabet_soup_1 - alphabet_soup
+    butter_1 - butter
+    white_cabinet_1 - white_cabinet
+    short_fridge_1 - short_fridge
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 kitchen_table_akita_black_bowl_init_region)
+    (On alphabet_soup_1 kitchen_table_alphabet_soup_0_region)
+    (On butter_1 kitchen_table_butter_1_region)
+    (On white_cabinet_1 kitchen_table_white_cabinet_0_region)
+    (On short_fridge_1 kitchen_table_short_fridge_1_region)
+  )
+
+  (:goal
+    (And (On akita_black_bowl_1 kitchen_table_white_bowl_init_region))
+  )
+
+)

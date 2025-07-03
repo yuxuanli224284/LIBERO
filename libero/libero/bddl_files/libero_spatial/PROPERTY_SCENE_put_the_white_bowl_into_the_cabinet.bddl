@@ -2,7 +2,7 @@
   (:domain robosuite)
   (:language Put the white bowl into the cabinet)
     (:regions
-      (white_bowl_init_region
+      (akita_black_bowl_init_region
           (:target kitchen_table)
           (:ranges (
               (-0.025 -0.025 0.025 0.025)
@@ -13,10 +13,10 @@
             )
           )
       )
-      (butter_0_0_region
+      (milk_0_region
           (:target kitchen_table)
           (:ranges (
-              (0.08923370793415748 -0.19215540610414783 0.09123370793415748 -0.19015540610414783)
+              (-0.1411353105537093 0.04969589237756048 -0.09113531055370927 0.09969589237756049)
             )
           )
           (:yaw_rotation (
@@ -24,10 +24,10 @@
             )
           )
       )
-      (popcorn_0_1_region
+      (alphabet_soup_1_region
           (:target kitchen_table)
           (:ranges (
-              (0.02208150941366978 0.23054935590859402 0.024081509413669783 0.23254935590859402)
+              (0.01288690261439892 0.0291615508159628 0.06288690261439892 0.0791615508159628)
             )
           )
           (:yaw_rotation (
@@ -35,10 +35,10 @@
             )
           )
       )
-      (ketchup_1_0_region
+      (butter_2_region
           (:target kitchen_table)
           (:ranges (
-              (-0.2199353464141589 -0.17415998805555596 -0.2179353464141589 -0.17215998805555596)
+              (-0.038301102209938084 0.1094929389820426 0.01169889779006192 0.1594929389820426)
             )
           )
           (:yaw_rotation (
@@ -46,10 +46,10 @@
             )
           )
       )
-      (milk_1_1_region
+      (yellow_book_3_region
           (:target kitchen_table)
           (:ranges (
-              (0.27895270926905996 0.07753891856429687 0.28095270926905996 0.07953891856429687)
+              (-0.09136198456313649 -0.14943535805581715 -0.04136198456313649 -0.09943535805581716)
             )
           )
           (:yaw_rotation (
@@ -57,10 +57,10 @@
             )
           )
       )
-      (cookies_1_2_region
+      (porcelain_mug_4_region
           (:target kitchen_table)
           (:ranges (
-              (0.060039459824238695 -0.2834524408439196 0.062039459824238696 -0.28145244084391957)
+              (-0.037424951351777716 -0.09508418572996258 0.012575048648222287 -0.04508418572996257)
             )
           )
           (:yaw_rotation (
@@ -75,29 +75,29 @@
   )
 
   (:objects
-    white_bowl_1 - white_bowl
-    butter_1 - butter
-    popcorn_1 - popcorn
-    ketchup_1 - ketchup
+    akita_black_bowl_1 - akita_black_bowl
     milk_1 - milk
-    cookies_1 - cookies
+    alphabet_soup_1 - alphabet_soup
+    butter_1 - butter
+    yellow_book_1 - yellow_book
+    porcelain_mug_1 - porcelain_mug
   )
 
   (:obj_of_interest
-    white_bowl_1
+    akita_black_bowl_1
   )
 
   (:init
-    (On white_bowl_1 kitchen_table_white_bowl_init_region)
-    (On butter_1 kitchen_table_butter_0_0_region)
-    (On popcorn_1 kitchen_table_popcorn_0_1_region)
-    (On ketchup_1 kitchen_table_ketchup_1_0_region)
-    (On milk_1 kitchen_table_milk_1_1_region)
-    (On cookies_1 kitchen_table_cookies_1_2_region)
+    (On akita_black_bowl_1 kitchen_table_akita_black_bowl_init_region)
+    (On milk_1 kitchen_table_milk_0_region)
+    (On alphabet_soup_1 kitchen_table_alphabet_soup_1_region)
+    (On butter_1 kitchen_table_butter_2_region)
+    (On yellow_book_1 kitchen_table_yellow_book_3_region)
+    (On porcelain_mug_1 kitchen_table_porcelain_mug_4_region)
   )
 
   (:goal
-    (And (On white_bowl_1 kitchen_table_white_bowl_init_region))
+    (And (On akita_black_bowl_1 kitchen_table_white_bowl_init_region))
   )
 
 )
