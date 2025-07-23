@@ -6,6 +6,8 @@ from libero.libero.envs.objects import *
 from libero.libero.envs.predicates import *
 from libero.libero.envs.regions import *
 from libero.libero.envs.utils import rectangle2xyrange
+from libero.libero.envs.bddl_base_domain import DANGER_OBJECTS
+
 
 
 @register_problem
@@ -142,6 +144,18 @@ class Libero_Kitchen_Tabletop_Manipulation(BDDLBaseDomain):
         for state in goal_state:
             result = self._eval_predicate(state) and result
         return result
+    
+    def _check_move(self):
+        move_penalty = 0.0
+        for obj_name, obj in self.objects_dict.items():
+            if obj_name not in self._initial_obj_positions:
+                continue
+            curr_pos = self.sim.data.body_xpos[self.obj_body_id[obj_name]]
+            init_pos = self._initial_obj_positions[obj_name]
+            move_distance = np.linalg.norm(curr_pos - init_pos)
+            danger_eff = DANGER_OBJECTS.get(obj_name, 0)
+            move_penalty += move_distance * danger_eff
+        return move_penalty
 
     def _eval_predicate(self, state):
         if len(state) == 3:

@@ -55,7 +55,7 @@
   (:init
     (On akita_black_bowl_1 kitchen_table_akita_black_bowl_init_region)
     (On white_cabinet_1 kitchen_table_white_cabinet_init_region)
-    
+    (Open white_cabinet_1_top_region)
   )
 
   (:goal

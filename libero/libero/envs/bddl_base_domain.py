@@ -25,6 +25,16 @@ DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
 TASK_MAPPING = {}
 
+DANGER_OBJECTS = {
+    "alphabet_soup": 7,
+    "ketchup": 6,
+    "butter": 3,
+    "milk": 8,
+    "porcelain_mug": 6,
+    "yellow_book": 2,
+    "plate": 6,
+    "akita_black_bowl": 6
+}
 
 def register_problem(target_class):
     """We design the mapping to be case-INsensitive."""
@@ -185,6 +195,9 @@ class BDDLBaseDomain(SingleArmEnv):
         # Scale reward if requested
         if self.reward_scale is not None:
             reward *= self.reward_scale / 1.0
+
+        move_penalty = self._check_move()
+        reward += move_penalty
 
         return reward
 
@@ -776,6 +789,11 @@ class BDDLBaseDomain(SingleArmEnv):
                     self.sim.model.body_pos[body_id] = obj_pos
                     self.sim.model.body_quat[body_id] = obj_quat
 
+        self._initial_obj_positions = {
+            name: np.array(self.sim.data.body_xpos[self.obj_body_id[name]])
+            for name in self.objects_dict
+        }
+
     def _check_success(self):
         """
         This needs to match with the goal description from the bddl file
@@ -784,6 +802,7 @@ class BDDLBaseDomain(SingleArmEnv):
             bool: True if drawer has been opened
         """
         return False
+    
 
     def visualize(self, vis_settings):
         """

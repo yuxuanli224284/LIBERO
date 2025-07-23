@@ -102,6 +102,9 @@ class ControlEnv:
 
     def check_success(self):
         return self.env._check_success()
+    
+    def check_move(self):
+        return self.env._check_move()
 
     @property
     def _visualizations(self):

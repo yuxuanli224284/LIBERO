@@ -68,7 +68,8 @@ class TestScene2(InitialSceneTemplates):
 
         object_num_info = {
             "akita_black_bowl": 1,
-            "plate": 2,
+            "plate": 1,
+            "black_book": 1,
         }
 
         super().__init__(
@@ -106,7 +107,7 @@ class TestScene2(InitialSceneTemplates):
         states = [
             ("On", "akita_black_bowl_1", "kitchen_table_akita_black_bowl_init_region"),
             ("On", "plate_1", "kitchen_table_plate_init_region"),
-            ("On", "plate_2", "kitchen_table_wooden_cabinet_init_region"),
+            ("On", "black_book_1", "kitchen_table_wooden_cabinet_init_region"),
             # ("Open", "wooden_cabinet_1", "wooden_cabinet_1_top_drawer"),
             ]
         return states
