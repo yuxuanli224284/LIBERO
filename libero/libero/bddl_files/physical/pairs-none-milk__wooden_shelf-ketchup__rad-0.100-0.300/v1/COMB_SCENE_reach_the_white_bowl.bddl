@@ -1,0 +1,78 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Reach the white bowl)
+    (:regions
+      (akita_black_bowl_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.025 -0.025 0.025 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (milk_1_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.005786698460311223 0.12555279769005484 0.05578669846031123 0.17555279769005483)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (wooden_shelf_1_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.10343749823943033 -0.1457774338070709 0.16343749823943032 -0.0857774338070709)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (top_side
+          (:target wooden_shelf_1)
+      )
+      (top_region
+          (:target wooden_shelf_1)
+      )
+      (middle_region
+          (:target wooden_shelf_1)
+      )
+      (bottom_region
+          (:target wooden_shelf_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    wooden_shelf_1 - wooden_shelf
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    milk_1 - milk
+    ketchup_1 - ketchup
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 kitchen_table_akita_black_bowl_init_region)
+    (On milk_1 kitchen_table_milk_1_region)
+    (On wooden_shelf_1 kitchen_table_wooden_shelf_1_region)
+    (On ketchup_1 wooden_shelf_1_top_region)
+  )
+
+  (:goal
+    (And (reached akita_black_bowl_1))
+  )
+
+)

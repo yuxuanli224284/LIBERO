@@ -112,6 +112,29 @@ class ObjectState(BaseObjectState):
             if not (self.env.get_object(self.object_name).is_close(qpos)):
                 return False
         return True
+    
+    def is_gripper_in_contact(self):
+        gripper_geom_names = [
+            "gripper0_hand_collision",
+            "gripper0_finger1_collision",
+            "gripper0_finger1_pad_collision",
+            "gripper0_finger2_collision",
+            "gripper0_finger2_pad_collision",
+        ]
+        target_geom_names = [
+            name for name in self.env.sim.model.geom_names
+            if name and name.startswith(self.object_name)
+        ]
+
+        for contact in self.env.sim.data.contact[: self.env.sim.data.ncon]:
+            g1 = self.env.sim.model.geom_id2name(contact.geom1)
+            g2 = self.env.sim.model.geom_id2name(contact.geom2)
+            if (
+                (g1 in gripper_geom_names and g2 in target_geom_names)
+                or (g2 in gripper_geom_names and g1 in target_geom_names)
+            ):
+                return True
+        return False
 
     def turn_on(self):
         for joint in self.env.get_object(self.object_name).joints:

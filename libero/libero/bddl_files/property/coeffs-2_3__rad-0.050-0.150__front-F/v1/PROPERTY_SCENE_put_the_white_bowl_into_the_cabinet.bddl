@@ -1,0 +1,64 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the white bowl into the cabinet)
+    (:regions
+      (akita_black_bowl_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.025 -0.025 0.025 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (yellow_book_0_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0245121792028787 -0.11225833224717566 0.025487820797121304 -0.06225833224717566)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (butter_1_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.04842513285782382 -0.0753507866444252 0.0015748671421761846 -0.025350786644425194)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    yellow_book_1 - yellow_book
+    butter_1 - butter
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 kitchen_table_akita_black_bowl_init_region)
+    (On yellow_book_1 kitchen_table_yellow_book_0_region)
+    (On butter_1 kitchen_table_butter_1_region)
+  )
+
+  (:goal
+    (And (reached akita_black_bowl_1))
+  )
+
+)

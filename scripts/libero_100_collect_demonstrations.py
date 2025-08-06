@@ -7,6 +7,7 @@ The demonstrations can be played back using the `playback_demonstrations_from_pk
 script.
 
 """
+# python scripts/libero_100_collect_demonstrations.py --device controller --camera robot0_eye_in_hand
 
 import argparse
 import cv2
@@ -263,7 +264,10 @@ if __name__ == "__main__":
         default=50,
         help="How much to scale rotation user inputs",
     )
-    parser.add_argument("--bddl-file", type=str, default="/home/lyx/LIBERO/libero/libero/bddl_files/libero_spatial/pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_c.bddl")
+    # parser.add_argument("--bddl-file", type=str, default="libero/libero/bddl_files/libero_spatial/SPACIAL_SCENE_put_the_white_bowl_into_the_cabinet.bddl")
+    # parser.add_argument("--bddl-file", type=str, default="libero/libero/bddl_files/libero_spatial/COMB_SCENE_put_the_white_bowl_into_the_cabinet_1.bddl")
+    parser.add_argument("--bddl-file", type=str, default="/home/lyx/LIBERO/libero/libero/bddl_files/libero_spatial/TEST_SCENE2_immovable_book.bddl")
+    # parser.add_argument("--bddl-file", type=str, default='/home/lyx/LIBERO/libero/libero/bddl_files/physical/pairs-none-ketchup__wooden_shelf-milk__rad-0.100-0./home/lyx/LIBERO/libero/libero/bddl_files/libero_spatial/TEST_SCENE2_immovable_book.bddl300/v0/COMB_SCENE_reach_the_white_bowl.bddl')
     parser.add_argument("--task-id", type=int)
 
     parser.add_argument("--vendor-id", type=int, default=9583)

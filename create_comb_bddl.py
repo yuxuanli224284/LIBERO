@@ -105,8 +105,8 @@ if __name__ == "__main__":
     parser.add_argument("--goal_object", type=str, default="akita_black_bowl_1")
     parser.add_argument("--goal_region", type=str, default="kitchen_table_akita_black_bowl_init_region")
     parser.add_argument("--folder", type=str, default="libero/libero/bddl_files/libero_spatial")
+    
     parser.add_argument("--task_language", type=str, default="Put the white bowl into the cabinet")
-
     parser.add_argument("--target_object", type=str, default="akita_black_bowl")
     parser.add_argument("--target_position", type=tuple, default=(0.0, 0.0))
     parser.add_argument("--region_range", type=tuple, default=(0.10, 0.30))

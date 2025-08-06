@@ -116,3 +116,8 @@ class TurnOn(UnaryAtomic):
 class TurnOff(UnaryAtomic):
     def __call__(self, arg):
         return arg.turn_off()
+
+
+class Reached(UnaryAtomic):
+    def __call__(self, arg):
+        return arg.is_gripper_in_contact()

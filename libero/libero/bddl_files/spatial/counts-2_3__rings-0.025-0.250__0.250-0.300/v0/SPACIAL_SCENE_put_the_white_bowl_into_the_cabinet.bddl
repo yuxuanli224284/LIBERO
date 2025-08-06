@@ -1,0 +1,103 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the white bowl into the cabinet)
+    (:regions
+      (white_bowl_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.025 -0.025 0.025 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (butter_0_0_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.055178704523369086 -0.23866166050123083 -0.053178704523369084 -0.23666166050123083)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (popcorn_0_1_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.07657331133084086 0.15566531059755223 0.07857331133084086 0.15766531059755223)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (ketchup_1_0_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.2324689489726527 -0.10157192747974592 0.2344689489726527 -0.09957192747974591)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (milk_1_1_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2673287828618036 -0.12941428837752977 -0.2653287828618036 -0.12741428837752977)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (cookies_1_2_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.015505983748185993 0.29400265951311194 -0.013505983748185992 0.29600265951311194)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+  )
+
+  (:objects
+    white_bowl_1 - white_bowl
+    butter_1 - butter
+    popcorn_1 - popcorn
+    ketchup_1 - ketchup
+    milk_1 - milk
+    cookies_1 - cookies
+  )
+
+  (:obj_of_interest
+    white_bowl_1
+  )
+
+  (:init
+    (On white_bowl_1 kitchen_table_white_bowl_init_region)
+    (On butter_1 kitchen_table_butter_0_0_region)
+    (On popcorn_1 kitchen_table_popcorn_0_1_region)
+    (On ketchup_1 kitchen_table_ketchup_1_0_region)
+    (On milk_1 kitchen_table_milk_1_1_region)
+    (On cookies_1 kitchen_table_cookies_1_2_region)
+  )
+
+  (:goal
+    (And (reached white_bowl_1))
+  )
+
+)

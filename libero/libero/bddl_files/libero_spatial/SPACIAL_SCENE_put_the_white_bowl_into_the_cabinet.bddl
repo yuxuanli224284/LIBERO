@@ -16,18 +16,7 @@
       (butter_0_0_region
           (:target kitchen_table)
           (:ranges (
-              (0.08923370793415748 -0.19215540610414783 0.09123370793415748 -0.19015540610414783)
-            )
-          )
-          (:yaw_rotation (
-              (0.0 0.0)
-            )
-          )
-      )
-      (popcorn_0_1_region
-          (:target kitchen_table)
-          (:ranges (
-              (0.02208150941366978 0.23054935590859402 0.024081509413669783 0.23254935590859402)
+              (0.03554247366773371 -0.03570894973751097 0.03754247366773371 -0.03370894973751097)
             )
           )
           (:yaw_rotation (
@@ -38,29 +27,7 @@
       (ketchup_1_0_region
           (:target kitchen_table)
           (:ranges (
-              (-0.2199353464141589 -0.17415998805555596 -0.2179353464141589 -0.17215998805555596)
-            )
-          )
-          (:yaw_rotation (
-              (0.0 0.0)
-            )
-          )
-      )
-      (milk_1_1_region
-          (:target kitchen_table)
-          (:ranges (
-              (0.27895270926905996 0.07753891856429687 0.28095270926905996 0.07953891856429687)
-            )
-          )
-          (:yaw_rotation (
-              (0.0 0.0)
-            )
-          )
-      )
-      (cookies_1_2_region
-          (:target kitchen_table)
-          (:ranges (
-              (0.060039459824238695 -0.2834524408439196 0.062039459824238696 -0.28145244084391957)
+              (-0.006591026708630708 0.2610822447643632 -0.004591026708630708 0.2630822447643632)
             )
           )
           (:yaw_rotation (
@@ -77,10 +44,7 @@
   (:objects
     white_bowl_1 - white_bowl
     butter_1 - butter
-    popcorn_1 - popcorn
     ketchup_1 - ketchup
-    milk_1 - milk
-    cookies_1 - cookies
   )
 
   (:obj_of_interest
@@ -90,14 +54,11 @@
   (:init
     (On white_bowl_1 kitchen_table_white_bowl_init_region)
     (On butter_1 kitchen_table_butter_0_0_region)
-    (On popcorn_1 kitchen_table_popcorn_0_1_region)
     (On ketchup_1 kitchen_table_ketchup_1_0_region)
-    (On milk_1 kitchen_table_milk_1_1_region)
-    (On cookies_1 kitchen_table_cookies_1_2_region)
   )
 
   (:goal
-    (And (On white_bowl_1 kitchen_table_white_bowl_init_region))
+    (And (reached white_bowl_1))
   )
 
 )

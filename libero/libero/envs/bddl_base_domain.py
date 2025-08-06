@@ -196,8 +196,8 @@ class BDDLBaseDomain(SingleArmEnv):
         if self.reward_scale is not None:
             reward *= self.reward_scale / 1.0
 
-        move_penalty = self._check_move()
-        reward += move_penalty
+        # move_penalty = self._check_move()
+        # reward += move_penalty
 
         return reward
 
@@ -789,10 +789,10 @@ class BDDLBaseDomain(SingleArmEnv):
                     self.sim.model.body_pos[body_id] = obj_pos
                     self.sim.model.body_quat[body_id] = obj_quat
 
-        self._initial_obj_positions = {
-            name: np.array(self.sim.data.body_xpos[self.obj_body_id[name]])
-            for name in self.objects_dict
-        }
+        # self._initial_obj_positions = {
+        #     name: np.array(self.sim.data.body_xpos[self.obj_body_id[name]])
+        #     for name in self.objects_dict
+        # }
 
     def _check_success(self):
         """

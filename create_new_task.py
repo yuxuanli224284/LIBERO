@@ -63,7 +63,8 @@ class TestScene2(InitialSceneTemplates):
 
         fixture_num_info = {
             "kitchen_table": 1,
-            # "wooden_cabinet": 1,
+            "wooden_cabinet": 1,
+            # "black_book": 1,
         }
 
         object_num_info = {
@@ -106,14 +107,16 @@ class TestScene2(InitialSceneTemplates):
     def init_states(self):
         states = [
             ("On", "akita_black_bowl_1", "kitchen_table_akita_black_bowl_init_region"),
-            ("On", "plate_1", "kitchen_table_plate_init_region"),
+            # ("On", "plate_1", "kitchen_table_plate_init_region"),
             ("On", "black_book_1", "kitchen_table_wooden_cabinet_init_region"),
+            ("On", "wooden_cabinet_1", "kitchen_table_plate_init_region"),
             # ("Open", "wooden_cabinet_1", "wooden_cabinet_1_top_drawer"),
             ]
         return states
 
+
 scene_name = "test_scene2"
-language = "Your Language 1"
+language ="immovable book"
 register_task_info(language,
                     scene_name=scene_name,
                     objects_of_interest=["plate_1", "akita_black_bowl_1"],

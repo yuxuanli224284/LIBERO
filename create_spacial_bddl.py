@@ -77,13 +77,16 @@ if __name__ == "__main__":
     parser.add_argument("--goal_object", type=str, default="white_bowl_1")
     parser.add_argument("--goal_region", type=str, default="kitchen_table_white_bowl_init_region")
     parser.add_argument("--folder", type=str, default="libero/libero/bddl_files/libero_spatial")
-    parser.add_argument("--task_language", type=str, default="Put the white bowl into the cabinet")
 
+    parser.add_argument("--task_language", type=str, default="Reach the white bowl on the kitchen table")
     parser.add_argument("--target_object", type=str, default="white_bowl")
     parser.add_argument("--target_position", type=tuple, default=(0.0, 0.0))
     parser.add_argument("--ring_regions", type=list, default=[(0.025, 0.25), (0.25, 0.30)])
     parser.add_argument("--distractor_counts", type=list, default=[2, 3])
     parser.add_argument("--distractor_objects", type=list, default=[["butter", "popcorn"], ["ketchup", "milk", "cookies"]])
+    parser.add_argument("--distractor_counts", type=list, default=[1, 1])
+    parser.add_argument("--distractor_objects", type=list, default=[["butter"], ["ketchup"]])
+
 
     args = parser.parse_args()
 
@@ -93,7 +96,9 @@ if __name__ == "__main__":
                        language=args.task_language,
                        scene_name=args.scene_name,
                        objects_of_interest=[args.goal_object],
-                       goal_states=[("On", args.goal_object, args.goal_region)]
+                    #    goal_states=[("On", args.goal_object, args.goal_region)]
+                       goal_states=[("reached", "white_bowl_1")]
+                    #    goal_states=[("reached", "{traget_objects}_1")]
                        )
 
     bddl_file_names, failures = generate_bddl_from_task_info(folder=args.folder)

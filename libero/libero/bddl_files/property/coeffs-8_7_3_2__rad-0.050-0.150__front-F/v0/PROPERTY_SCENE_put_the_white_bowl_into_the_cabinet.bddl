@@ -1,0 +1,90 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put the white bowl into the cabinet)
+    (:regions
+      (akita_black_bowl_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.025 -0.025 0.025 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (milk_0_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.050192873473999124 -0.028448861206474267 0.10019287347399913 0.021551138793525736)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (alphabet_soup_1_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.16123926974404212 -0.05362471043003565 -0.11123926974404214 -0.003624710430035649)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (butter_2_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.020443390429053333 0.06664887078931708 0.02955660957094667 0.1166488707893171)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (yellow_book_3_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.028083593265551224 -0.08301107313698049 0.07808359326555123 -0.033011073136980484)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    milk_1 - milk
+    alphabet_soup_1 - alphabet_soup
+    butter_1 - butter
+    yellow_book_1 - yellow_book
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 kitchen_table_akita_black_bowl_init_region)
+    (On milk_1 kitchen_table_milk_0_region)
+    (On alphabet_soup_1 kitchen_table_alphabet_soup_1_region)
+    (On butter_1 kitchen_table_butter_2_region)
+    (On yellow_book_1 kitchen_table_yellow_book_3_region)
+  )
+
+  (:goal
+    (And (reached akita_black_bowl_1))
+  )
+
+)
